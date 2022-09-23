@@ -1,0 +1,19 @@
+*{
+    margin:0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: 	#4FC0E8;
+}
+
+.info {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.nav {
+    margin-top: 10px;
+    text-align: center;
+}
