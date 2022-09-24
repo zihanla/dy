@@ -1,0 +1,342 @@
+<!--
+
+>>> 源码由 Misanki 制作
+>>> 企鹅扣扣:2637896409
+>>> 我们希望你保留版权，感谢!
+
+-->
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>单页9</title>
+  <link rel="stylesheet" href="assets/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/simple-bs-dialog.css">
+  <link rel="icon" href="icon.png">
+  <style>
+    * {
+      margin: 0; 
+      padding: 0;
+      cursor: url('assets/cur.png'), default!important
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #container {
+      overflow: hidden;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+
+    #background_video {
+      position: absolute;
+
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+
+      object-fit: cover;
+      height: 100%; width: 100%;
+    }
+
+    #video_cover {
+      position: absolute;
+
+      width: 100%; height: 100%;
+
+      background: url('bg.png') no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    #video_controls {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    #play img {
+      width: 100px;
+    }
+    #pause img {
+      width: 90px;
+    }
+    #pause {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      #video_controls {
+        display: none;
+      }
+    }
+
+    /* Demo page specific styles */
+
+    body {
+      text-align: center;
+      font-family: 'proxima-nova', Helvetica;
+    }
+
+    #container {
+      height: 100%;
+    }
+
+    #overlay {
+      position: absolute;
+      top: 0; right: 0; left: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+
+    #main_content {
+      z-index: 2;
+      position: relative;
+      display: inline-block;
+      top: 50%;
+      transform: translateY(-50%);
+      border:2px solid rgba(0,0,0,0.2);
+      padding: 20px;
+      border-radius: 10px 10px 10px 10px;
+      transition: 0.3s;
+    }
+
+    #main_content:hover{
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    #main_content h1 {
+      font-weight: 300;
+      font-family: 'proxima-nova', Helvetica;
+      color: #fff;
+      font-size: 35px;
+      padding-bottom: 5px;
+    }
+
+    #main_content .sub_head {
+      font-weight: bold;
+      background: linear-gradient(to right, pink,orange);
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: blink 1s linear infinite;
+      -webkit-animation: blink 2s linear infinite;
+      -moz-animation: blink 2s linear infinite;
+      -ms-animation: blink 2s linear infinite;
+      -o-animation: blink 2s linear infinite;
+      letter-spacing: 5px;
+    }
+
+    @keyframes blink{
+      0%{opacity: 1;}
+      50%{opacity: 0.5;}
+      100%{opacity: 0.8;}
+    }
+    @-webkit-keyframes blink {
+      0% { opacity: 1; }
+      50%{ opacity: 0.5;}
+      100% { opacity: 0.8; }
+    }
+    @-moz-keyframes blink {
+    0% { opacity: 1; }
+    50%{ opacity: 0.5; }
+    100% { opacity: 0.8; }
+    }
+    @-ms-keyframes blink {
+    0% { opacity: 1; }
+    50%{ opacity: 0.5; }
+    100% { opacity: 0.8;}
+    }
+    @-o-keyframes blink {
+    0% { opacity: 1; }
+    50%{ opacity: 0.5; }
+    100% { opacity: 0.8; }
+    }
+
+    #main_content .info {
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      margin-top: 10px;
+      letter-spacing:5px;
+    }
+
+    #links {
+      margin-top: 50px;
+    }
+
+    #links a {
+      border: 2px solid rgba(255,255,255,0.20);
+      border-radius: 61px;
+      font-size: 12px;
+      color: #FFFFFF;
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 10px 25px;
+      display: inline-block;
+      margin-right: 15px;
+    }
+
+    #footer {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+    }
+    #footer a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      margin: 10px;
+      font-size: 12px;
+    }
+    #footer a:first-child {
+      float: left;
+    }
+    #footer a:last-child {
+      float: right;
+    }
+    .btns{
+      font-size: 5px;
+      margin-top: 10px;
+      padding: 5px 5px 5px 5px;
+      border:2px solid #fff;
+      border-radius: 10px 10px 10px 10px;
+      outline: none;
+      color:pink;
+      opacity: 0.7;
+      background-color:transparent;
+    }
+    .btns:hover{
+      border:2px solid orange;
+      color:salmon;
+      outline: none;
+    }
+  </style>
+
+
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+</head>
+<body>
+  <div id="container">
+    <!-- 视频组件 -->
+    <video id="background_video" loop></video>
+    <div id="video_cover"></div>
+    <div id="overlay"></div>
+
+    <div id="video_controls">
+      <span id="play">
+        <img src="play.png">
+      </span>
+      <span id="pause">
+        <img src="pause.png">
+      </span>
+    </div>
+
+    <section id="main_content">
+      <div id="head">
+        <h1><img src="logo.png"></h1>
+        <p class="sub_head">路漫漫其修远兮，吾将上下而求索</p>
+        <p class="info">学习的动力在于兴趣，如果你对我们有兴趣，欢迎加入</p>
+        <p class="info">致力于发掘和学习各路语言，<del>我们目标是十行代码九行报错</del></p>
+        <p class="info">我们没有专业的讲师，没有专业的课程，没有专业的场地</p>
+        <p class="info">但只要你有兴趣（网页设计，程序开发）都可以加入我们~</p>
+        <p class="info">我们期待你的加入🙃</p>
+      </div>   
+      <button type="button" class="btns" id="need" @click="toast">加入要求</button>
+      <button type="button" class="btns" id="pass" style="margin-left: 10px;">学习任务</button>
+      <button type="button" class="btns" id="join" style="margin-left: 10px;">提交申请</button>
+
+      <div class="footer" style="margin-top:15px;color: rgba(255,255,255,0.5);font-size:15px;letter-spacing: 2px;">&copy; 2020 Page by Misanki All Qq2637896409.</div>
+    </section>
+    <!-- END Video -->
+  </div>
+  <script src="assets/jquery-1.11.0.min.js"></script>
+  <script src="assets/bideo.js"></script>
+  <script src="assets/main.js"></script>
+  <!---->
+  <script src="assets/bootstrap.min.js"></script>
+  <script src="assets/simple-bs-dialog.js"></script>
+  <script>
+    $("#need").click(function(){
+      SimpleBsDialog.show({
+      title: '加入要求',
+      html: `
+      <ul class="list-group list-group-flush">
+      <li class="list-group-item">一颗勇于上进的信心和敢于吃苦的决心</li>
+      <li class="list-group-item">对网络技术未来充满期待和兴趣</li>
+      <li class="list-group-item">拥有集体荣誉感</li>
+      <li class="list-group-item">自己能够按时完成任务</li>
+      <li class="list-group-item">我们希望您最好拥有一台自己PC</li>
+      </ul>
+      `,
+    });
+    });
+
+    $("#pass").click(function(){
+      SimpleBsDialog.show({
+        title:'学习任务',
+        html:`
+        <div class="alert alert-success" role="alert">学习如逆海行舟，不进则退.</div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">没有绝对的任务，只有不断的探索.</li>
+        <li class="list-group-item">念念不忘，必有回响</li>
+        <br/>
+        </ul>
+        `,
+      });
+    });
+
+    $("#join").click(function(){
+      SimpleBsDialog.show({
+        title:'提交申请',
+        html:`
+        <div class="alert alert-info" role="alert">现在开始提交你的申请书吧.</div>
+        <div class="form-group row">
+        <label class="col-sm-4 col-form-label">阁下的姓名</label>
+        <div class="col-sm-7">
+        <input type="text" class="form-control" id="name" placeholder="君の名">
+        </div>
+        </div>
+        <div class="form-group row">
+        <label class="col-sm-4 col-form-label">阁下的手机号</label>
+        <div class="col-sm-7">
+        <input type="text" class="form-control" id="call" placeholder="请填写申请人本人手机号">
+        </div>
+        </div>
+        <div class="form-group row">
+        <label class="col-sm-4 col-form-label">兴趣与爱好</label>
+        <div class="col-sm-7">
+        <textarea class="form-control" rows="5" id="text"></textarea>
+        </div>
+        </div>
+        <div class="form-group row">
+        <label class="col-sm-4 col-form-label">联系方式</label>
+        <div class="col-sm-7">
+        <input type="text" class="form-control" id="conn" placeholder="扣扣:xxx 或 微信:xxx">
+        </div>
+        </div>
+        <button type="button" class="btn btn-dark btn-block" id="tj">芜湖起飞，决定提交!</button>
+        `,
+      });
+        $("#tj").click(function(){
+        //变量组
+        var name = $("#name").val();
+        var text = $("#text").val();
+        var call = $("#call").val();
+        var conn = $("#conn").val();
+        //发起Ajax请求
+        $.ajax({
+          url:"api.php",
+          data:{name:name,text:text,call:call,conn:conn},
+          type:"POST",
+          dataType:"json",
+          success:function(data){
+            alert(data.msg);
+          },error:function(data){
+            alert(data.msg);
+          },   
+        });
+        });
+    });
+  </script>
+</body>
+</html>
