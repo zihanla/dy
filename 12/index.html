@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn" style="width: 100%; height: 100%; overflow: hidden;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>单页12</title>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="闲人导航">
+    <meta name="description" content="闲人导航">
+    <meta name="full-screen" content="yes">
+     <meta name="x5-fullscreen" content="true">
+    <link rel="stylesheet" href="static/css/buttons.css">
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+	 <style type="text/css">
+	  body{
+	          overflow-x: hidden;
+	          overflow-y: hidden;
+          }
+     </style>
+	 <meta name="description" content="LET IT BE !!!">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+		body{ background-color: #000000; }
+			.covervid-wrapper {
+				position: absolute;
+			    top: 0; left: 0;
+			    width: 100%;
+			    height: 100%;
+			}
+			.github-link {
+				position: absolute;rgba(255, 255, 255, 0.13)
+				top: 20px;
+				right: 20px;
+				opacity: 0.15;
+				-webkit-transition: 0.4s all ease;
+				-moz-transition: 0.4s all ease;
+				transition: 0.4s all ease;
+			}
+			.github-link:hover {
+				opacity: 0.4;
+			}
+			.fd{ position: absolute; top: 30%; color: rgba(255, 255, 255, 0.78); font-size: 40px; width: 100%; text-align: center; font-family: Gotham, "Helvetica Neue", Helvetica, shojo, sans-serif; }
+			.fd p{font-size: 14px; }
+			
+			
+			@font-face{
+			font-family:'shojo';
+			src:url('shojo.ttf')format('truetype');
+			}
+		</style>
+		<style type="text/css">
+<!--
+a:link {
+ text-decoration: none;
+}
+a:visited {
+ text-decoration: none;
+}
+a:hover {
+ text-decoration: none;
+}
+a:active {
+ text-decoration: none;
+}
+-->
+</style>
+<style>
+    .qq{width:100px;height:100px;border-radius:100px}
+</style>		
+</head>
+<body style="width: 100%; height: 100%; overflow: hidden;"  onselectstart="return false" >
+ <div class="covervid-wrapper">
+
+			<video class="covervid-video" autoplay loop > 
+				<source src="http://v1.cecdn.yun300.cn/site_1807160336/video0011534407234467.mp4" type="video/mp4"><!-- 这里填写视频外链-->
+			</video>
+
+                        <div style="position:absolute;top:0;left:50px;height:100px;width:100px"><img src="static/picture/logo.gif" /><a target="_blank" href="/" style="color:#FFF;font-family:'shojo'; font-weight:bold;"></a></div>
+			<div style="position:absolute;top:0;right:150px;height:100px;width:100px"><a target="_blank" href="https://nav.hxcpl.cn"  style="color:#FFF;font-family:'shojo'; font-weight:bold;"><P><h2>闲人导航</h2><P/></a></div>
+			<div style="position:absolute;top:0;right:300px;height:100px;width:100px"><a target="_blank" href="https://nav.hxcpl.cn"  style="color:#FFF;font-family:'shojo'; font-weight:bold;"><P><h2>闲人导航</h2><P/></a></div>
+			<div style="position:absolute;top:0;right:450px;height:100px;width:100px"><a target="_blank" href="https://nav.hxcpl.cn"  style="color:#FFF;font-family:'shojo'; font-weight:bold;"><P><h2>闲人导航</h2><P/></a></div>
+			<div style="position:absolute;top:0;right:600px;height:100px;width:100px"><a target="_blank" href="https://nav.hxcpl.cn"  style="color:#FFF;font-family:'shojo'; font-weight:bold;"><P><h2>闲人导航</h2><P/></a></div>	
+			<div class="fd">
+<center>
+
+<br>
+</center>
+			<a onclick="kaishi()"> <span style="font-family:'shojo'; font-weight:bold;">点我进入全屏播放</span>
+<br>
+
+<br><br>
+			<p><a href="#"  target="view_window" class="button button-glow button-border button-rounded button-highlight">闲人导航</a></p>
+                                          <!--<button class="button button-glow button-border button-circle button-action button-jumbo"><i class="fa fa-thumbs-up"></i></button>-->
+			</div>		
+			<div style="position:absolute;top:90%;right:50%;height:10px;width:600px"><a href="#" target="_black" style="color:#FFF;font-family:'shojo'; font-weight:bold;"><P><font face="微软雅黑">© CopyRight 2015-2018, 闲人导航
+<br><P/></a></div>
+		</div>
+		<script src="static/js/jquery.min.js"></script>
+		<script src="static/js/covervid.js"></script>
+		<script type="text/javascript">
+			$('.covervid-video').coverVid(1920, 1080);
+		</script>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/acgface.scrollpage.min.js"></script>
+    <script src="static/js/index.min.js"></script>
+<script>  
+    function kaishi()  
+    {  
+  
+  
+        var docElm = document.documentElement;  
+        //W3C   
+        if (docElm.requestFullscreen) {  
+            docElm.requestFullscreen();  
+        }  
+            //FireFox   
+        else if (docElm.mozRequestFullScreen) {  
+            docElm.mozRequestFullScreen();  
+        }  
+            //Chrome等   
+        else if (docElm.webkitRequestFullScreen) {  
+            docElm.webkitRequestFullScreen();  
+        }  
+            //IE11   
+        else if (elem.msRequestFullscreen) {  
+            elem.msRequestFullscreen();  
+        }  
+    }  
+  
+    function guanbi() {  
+  
+  
+        if (document.exitFullscreen) {  
+            document.exitFullscreen();  
+        }  
+        else if (document.mozCancelFullScreen) {  
+            document.mozCancelFullScreen();  
+        }  
+        else if (document.webkitCancelFullScreen) {  
+            document.webkitCancelFullScreen();  
+        }  
+        else if (document.msExitFullscreen) {  
+            document.msExitFullscreen();  
+        }  
+    }  
+  
+  
+  
+  
+    document.addEventListener("fullscreenchange", function () {  
+          
+        fullscreenState.innerHTML = (document.fullscreen) ? "" : "not ";  
+    }, false);  
+     
+  
+      
+    document.addEventListener("mozfullscreenchange", function () {  
+         
+        fullscreenState.innerHTML = (document.mozFullScreen) ? "" : "not ";  
+    }, false);  
+      
+  
+     
+    document.addEventListener("webkitfullscreenchange", function () {  
+          
+        fullscreenState.innerHTML = (document.webkitIsFullScreen) ? "" : "not ";  
+    }, false);  
+      
+    document.addEventListener("msfullscreenchange", function () {  
+          
+        fullscreenState.innerHTML = (document.msFullscreenElement) ? "" : "not ";  
+    }, false);  
+   
+</script> 
+<!-- 禁止F12代码 -->
+<script>function fuckyou(){
+ window.close(); //关闭当前窗口(防抽)
+ window.location="about:blank"; //将当前窗口跳转置空白页
+}
+ function ck() {
+ console.profile();
+ console.profileEnd();
+ //我们判断一下profiles里面有没有东西，如果有，肯定有人按F12了，没错！！
+ if(console.clear) { console.clear() };
+ if (typeof console.profiles =="object"){
+ return console.profiles.length > 0;
+ }
+}
+function hehe(){
+if( (window.console && (console.firebug || console.table && /firebug/i.test(console.table()) )) || (typeof opera == 'object' && typeof opera.postError == 'function' && console.profile.length > 0)){
+ fuckyou();
+}
+if(typeof console.profiles =="object"&&console.profiles.length > 0){
+fuckyou();
+}
+}
+hehe();
+window.onresize = function(){
+if((window.outerHeight-window.innerHeight)>200)
+//判断当前窗口内页高度和窗口高度，如果差值大于200，那么呵呵
+ fuckyou();
+}</script> 
+<!-- 背景音乐代码 -->
+<audio autoplay="autoplay" loop>
+	<source src="http://www.xcooo.cn/bgm.mp3" type="audio/mpeg">
+</audio>
+</body></html>
