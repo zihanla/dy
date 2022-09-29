@@ -16,31 +16,55 @@
         <p>本人仅提供共享服务，非下列单页作者</p>
         <p>9.28本地库存，目前更新完了，暂时停更</p>
     </div>
-<!-- 昨天玩儿了下dom,今天实践以下改下目录结构-->
     <hr>
     <div class="nav">
-        <p>目前单页个数:15</p>
-        <p>请输入1-15中的数，跳转到指定单页</p>
+        <p>请输入1-<span id="dyNum"></span>中的数，跳转到指定单页</p>
         <div class="skip">
-            <!--onblur失去焦点事件 失去焦点 给value 赋值为''-->
-            <input id="ipt"  onblur="value =''">
+            <!--    点击ipt输入框时 清除框中的值        -->
+            <input id="ipt" onclick="value = ''">
             <button class="btn1" onclick="goTo()">跳转</button>
         </div>
     </div>
     <script>
-        // 指定链接 跳转新窗口功能
+        // 方便更新页面时，只改dyNum一个值
+        let dyNum = 15
+        // 获取html中 id为dyNum的标签 并插入文本为 内容为 dyNum
+        document.getElementById("dyNum").innerText = dyNum
+
+            // 指定链接 跳转新窗口功能
         // https://dy.hxcpl.cn/1/index.html
         // https://dy.hxcpl.cn/2/index.html
         function goTo() {
             // 获取ipt 输入框中的value值
             let ipt = document.getElementById("ipt").value;
-            // 输入框中没有值时 点击跳转 默认跳转为第一个单页
-            if (ipt == 0) {
-                ipt = 1
+            // 如果 ipt的值 等于0 跳出弹窗 否则跳转指定网页
+            if (ipt == 0 || ipt > dyNum) {
+                alert("请按提示在输入框中输入值")
+            } else {
+                window.open(`https://dy.hxcpl.cn/${ipt}/index.html`)
+                // 调用window.open命令 打开新窗口
             }
-            window.open(`https://dy.hxcpl.cn/${ipt}/index.html`) // 调用window.open命令 打开新窗口
-
         }
+            // 就很离谱 为了不影响ipt输入框value值的获取，又想再次输入的时候清除空ipt的值，费了这么大的劲儿。。。
+            // 写这段注释的时候 又想到办法了 就当学习了。。。
+            // 其实也不是，一开始时想法是要输入框中有提示的，然后输入清除 离开再恢复的，当影响到获取输入框的值了
+            // 这个nav盒子的重写花了2个小时emmm 教训告诉我先跑通逻辑，再写代码
+             /*
+             添加监听 监听VisibilityChange事件；
+             用于判断用户是否离开当前页面
+             返回三个值:
+             prerender 默认 当前页面
+             hidden 离开
+             visible 回来
+             */
+        //     document.addEventListener("visibilitychange",function () {
+        //         //
+        //         if (document.visibilityState == "hidden") {
+        //             // 清除ipt 输入框里面的值
+        //             document.getElementById("ipt").value = ""
+        //         }
+        //     })
+        // }
     </script>
 </body> 
 </html>
