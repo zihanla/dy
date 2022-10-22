@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,33 +8,33 @@
     <title>单页列表展示</title>
     <link rel="stylesheet" href="static/style.css">
 </head>
+
 <body>
     <div class="info">
-        <h2>声明</h2>
-        <p>如题这是我收集的单页跳转页面</p>
-        欢迎使用: <a href="https://github.com/zihanla/dy" target="_blank">说明书</a>
-        <p>部分单页加载过慢请耐心等待</p>
-        <p>本人仅提供共享服务，非下列单页作者</p>
-        <p>9.28本地库存，目前更新完了，暂时停更</p>
+        <h2>简介</h2>
+        <p>这是一个单页仓库展示页</p>
+        <p>部署在github,资源加载稍慢，请耐心等待</p>
+        <p>本人仅提供共享，非单页作者 <a href="https://github.com/zihanla/dy" target="_blank">仓库地址</a></p>
     </div>
-    <hr>
+
     <div class="nav">
-        <p>请输入1-<span id="dyNum"></span>中的数，跳转到指定单页</p>
+        请输入1-<span id="dyNum"></span>中的数，跳转到指定单页
         <div class="skip">
             <!--    点击ipt输入框时 清除框中的值        -->
             <input id="ipt" onclick="value = ''">
-            <button class="btn1" onclick="goTo()">跳转</button>
+            <button class="btn" onclick="goTo()" style="width: 40px;">跳转</button>
+            <br><br>
+            <button class=" btn" onclick="rmTo()" style="width: 166px;">点我随机访问</button>
         </div>
     </div>
+
     <script>
-        // 方便更新页面时，只改dyNum一个值
+        // 单页总数
         let dyNum = 15
-        // 获取html中 id为dyNum的标签 并插入文本为 内容为 dyNum
+        // 把单页总数插入页面
         document.getElementById("dyNum").innerText = dyNum
 
-            // 指定链接 跳转新窗口功能
-        // https://dy.hxcpl.cn/1/index.html
-        // https://dy.hxcpl.cn/2/index.html
+        // 跳转指定页面
         function goTo() {
             // 获取ipt 输入框中的value值
             let ipt = document.getElementById("ipt").value;
@@ -42,29 +43,17 @@
                 alert("请按提示在输入框中输入值")
             } else {
                 window.open(`https://dy.hxcpl.cn/${ipt}/index.html`)
-                // 调用window.open命令 打开新窗口
             }
         }
-            // 就很离谱 为了不影响ipt输入框value值的获取，又想再次输入的时候清除空ipt的值，费了这么大的劲儿。。。
-            // 写这段注释的时候 又想到办法了 就当学习了。。。
-            // 其实也不是，一开始时想法是要输入框中有提示的，然后输入清除 离开再恢复的，当影响到获取输入框的值了
-            // 这个nav盒子的重写花了2个小时emmm 教训告诉我先跑通逻辑，再写代码
-             /*
-             添加监听 监听VisibilityChange事件；
-             用于判断用户是否离开当前页面
-             返回三个值:
-             prerender 默认 当前页面
-             hidden 离开
-             visible 回来
-             */
-        //     document.addEventListener("visibilitychange",function () {
-        //         //
-        //         if (document.visibilityState == "hidden") {
-        //             // 清除ipt 输入框里面的值
-        //             document.getElementById("ipt").value = ""
-        //         }
-        //     })
-        // }
+
+        // 随机跳转范围内的页面
+        function rmTo() {
+            // 随机获取0-dyNum中的数(包含dyNum,不包含0) 
+            let rmd = Math.ceil(Math.random() * dyNum)
+            window.open(`https://dy.hxcpl.cn/${rmd}/index.html`)
+        }
+
     </script>
-</body> 
+</body>
+
 </html>
