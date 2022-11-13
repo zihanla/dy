@@ -5,60 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>闲人单页仓库</title>
-</head>
-
-<body>
-    <!-- 模板容器 -->
-    <div id="app">
-        <div class="info">
-            <h2>简介</h2>
-            <p>这是一个单页仓库展示页</p>
-            <p>部署在github,资源加载稍慢，请耐心等待</p>
-            <p>本人仅提供共享，非单页作者 <a href="https://github.com/zihanla/dy" target="_blank">仓库地址</a></p>
-        </div>
-
-        <div class="nav">
-            <p>请输入1-{{dyNum}}中的数，跳转到指定单页</p>
-            <br>
-            <input v-model="ipt" onclick="value = ''">
-            <button @click="goTo" style="width: 40px;">跳转</button>
-            <br><br>
-            <button @click="rmTo" style="width: 166px;">点我随机访问</button>
-        </div>
-
-    </div>
-    <!-- js -->
-    <script src="./static/js/vue.min.js"></script>
-    <script>
-        // 创建Vue实例
-        const vm = new Vue({
-            data: {
-                dyNum: 16, // 单页数量
-                ipt: "", // ipt框中的值 双向绑定
-            },
-            methods: {
-                // 跳转指定页面
-                goTo() {
-                    // 如果 ipt的值 等于0 跳出弹窗 否则跳转指定网页
-                    if (this.ipt == 0 || this.ipt > this.dyNum) {
-                        alert("请按提示在输入框中输入值")
-                    } else {
-                        window.open(`https://dy.hxcpl.cn/${this.ipt}/index.html`)
-                    }
-                },
-                // 随机跳转范围内的页面
-                rmTo() {
-                    // 随机获取0-dyNum中的数(包含dyNum,不包含0) 
-                    let rmd = Math.ceil(Math.random() * this.dyNum)
-                    window.open(`https://dy.hxcpl.cn/${rmd}/index.html`)
-                },
-            },
-        })
-        vm.$mount("#app")
-    </script>
-
-
     <!-- style -->
     <style>
         /* 全局样式 */
@@ -118,7 +64,58 @@
             background-color: #fff;
         }
     </style>
+    <title>闲人单页仓库</title>
+</head>
 
+<body>
+    <!-- 模板容器 -->
+    <div id="app">
+        <div class="info">
+            <h2>简介</h2>
+            <p>这是一个单页仓库展示页</p>
+            <p>部署在github,资源加载稍慢，请耐心等待</p>
+            <p>本人仅提供共享，非单页作者 <a href="https://github.com/zihanla/dy" target="_blank">仓库地址</a></p>
+        </div>
+
+        <div class="nav">
+            <p>请输入1-{{dyNum}}中的数，跳转到指定单页</p>
+            <br>
+            <input v-model="ipt" onclick="value = ''">
+            <button @click="goTo" style="width: 40px;">跳转</button>
+            <br><br>
+            <button @click="rmTo" style="width: 166px;">点我随机访问</button>
+        </div>
+
+    </div>
+    <!-- js -->
+    <script src="./static/js/vue.min.js"></script>
+    <script>
+        // 创建Vue实例
+        const vm = new Vue({
+            data: {
+                dyNum: 16, // 单页数量
+                ipt: "", // ipt框中的值 双向绑定
+            },
+            methods: {
+                // 跳转指定页面
+                goTo() {
+                    // 如果 ipt的值 等于0 跳出弹窗 否则跳转指定网页
+                    if (this.ipt == 0 || this.ipt > this.dyNum) {
+                        alert("请按提示在输入框中输入值")
+                    } else {
+                        window.open(`https://dy.hxcpl.cn/${this.ipt}/index.html`)
+                    }
+                },
+                // 随机跳转范围内的页面
+                rmTo() {
+                    // 随机获取0-dyNum中的数(包含dyNum,不包含0) 
+                    let rmd = Math.ceil(Math.random() * this.dyNum)
+                    window.open(`https://dy.hxcpl.cn/${rmd}/index.html`)
+                },
+            },
+        })
+        vm.$mount("#app")
+    </script>
 </body>
 
 </html>
