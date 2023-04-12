@@ -39,7 +39,7 @@ body {
 .headPhoto {
     width: 8rem;
     height: 8rem;
-    background: url(https://q1.qlogo.cn/g?b=qq&nk=1300644383&s=640) no-repeat;
+    background: url('../img/logo.jpg') no-repeat;
     background-size: cover;
     border-radius: 50%;
     position: relative;
@@ -291,8 +291,7 @@ body {
 }
 
 /* 自适应 */
-@media screen and (max-width: 1250px)
-{
+@media screen and (max-width: 1250px) {
     .meBox {
         margin-left: 3%;
     }
@@ -308,8 +307,7 @@ body {
     }
 }
 
-@media screen and (max-width: 1110px)
-{
+@media screen and (max-width: 1110px) {
     .meBox {
         float: none;
         margin: 100px auto 100px;
@@ -327,8 +325,7 @@ body {
     }
 }
 
-@media screen and (max-width: 768px)
-{
+@media screen and (max-width: 768px) {
     .meBox {
         width: 300px;
     }
@@ -342,7 +339,7 @@ body {
     .meBox-Button a:hover {
         color: rgb(0, 132, 255);
     }
-    
+
     .meBox:hover .meBox-Button a {
         width: 150px;
         margin-top: 0;
